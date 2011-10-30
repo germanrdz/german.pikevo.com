@@ -5,7 +5,7 @@ var Application = {
     sidebar_id:         "sidebar",
 	video_interval: 	null, 
 	img:  				null, 
-	frame_rate: 		1500,  // in miliseconds  
+	frame_rate: 		1000,  // in miliseconds  
 	images_list:   		[],
 	frame_count:  		0,
 	total_frames: 		0, 
@@ -43,7 +43,8 @@ var Application = {
 		    {            
 	            Application.images_list.push(item);
                 
-                $(menu).append($.LI({}, item));
+                $(menu).append(
+                    $.A({ className: "frame" + i, href: "javascript:goToFrame("+i+");" }, $.LI({}, item)));
             }
         });
 	},
@@ -52,44 +53,31 @@ var Application = {
 		var nextFrameImage = Application.images_dir + Application.images_list[Application.frame_count];
         var currentImage = Application.img.find("img");
 
-        console.debug(nextFrameImage);
+        //console.debug(nextFrameImage);
 
         Application.img.css("background-image", "url(" + nextFrameImage + ")");
         
         $("#frame img").animate({
             opacity: 0
-        }, Application.frame_rate/2, function() {           
+        }, Application.frame_rate/2, function() {
+
             currentImage.remove();
             Application.img.append($.IMG({ src: nextFrameImage }));
-            //currentImage.attr("src", nextFrameImage);    
+            
         });
 
         Application.frame_count++;
+        
+        // update active link on sidebar
+        $("#sidebar li").removeClass("active");
+        $("#sidebar .frame" + Application.frame_count).find("li").addClass("active");
 
+
+        // if reached total, stop interval
         if (Application.frame_count >= Application.total_frames)                
         {
             clearInterval(Application.video_interval);;
         }
-
-        /*
-        $(Application.img).animate({
-            opacity: 0
-        }, Application.frame_rate/2,
-        function() {
-            Application.img.attr("src", nextFrameImage);
-
-            $(Application.img).animate({
-                opacity: 1
-            }, Application.frame_rate/2, function() { });
-            
-            Application.frame_count++;
-
-            if (Application.frame_count < Application.total_frames)                
-            {
-                Application.nextFrame();
-            }
-        });
-        */
 	}
 	
 };
