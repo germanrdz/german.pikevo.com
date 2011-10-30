@@ -4,6 +4,10 @@
 
 <html>
 	<head>
+        <title>
+            Picture Evolution
+        </title>
+        
 		<link href="master.css" rel="stylesheet" type="text/css" />		
 		<script src="jquery.min.js" type="text/javascript" charset="utf-8" ></script>
 		<script src="jquery.dom.js" type="text/javascript" charset="utf-8" ></script>
