@@ -53,9 +53,11 @@ var Application = {
 		var nextFrameImage = Application.images_dir + Application.images_list[Application.frame_count];
         var currentImage = Application.img.find("img");
 
+        //nextFrameImage = encodeURIComponent(nextFrameImage);
+
         //console.debug(nextFrameImage);
 
-        Application.img.css("background-image", "url(" + nextFrameImage + ")");
+        Application.img.css("background-image", "url('" + nextFrameImage + "')");
         
         $("#frame img").animate({
             opacity: 0

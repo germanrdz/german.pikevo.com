@@ -1,3 +1,9 @@
+body {
+    font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+
+}
+
+
 a {
     text-decoration: none;
 }
@@ -7,7 +13,7 @@ a {
 }
 
 #sidebar {
-    width: 150px;
+    width: 230px;
     float: left;
     margin-right: 20px;
 
@@ -52,13 +58,19 @@ a {
 	transition: opacity 1s ease-in-out;
 }*/
 
+#frame img {
+    width: 640px;    
+}
+
 #frame {
     width: 640px;
-    height: 480px;
+    height: 840px;
     margin: 0;
     padding: 0;
 
     float: left;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 #frame .fullOpacity {
