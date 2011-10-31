@@ -2,7 +2,7 @@ var Application = {
 	
 	images_dir: 		"images/",
 	placeholder_id: 	"player",
-    sidebar_id:         "sidebar",
+    timeline_id:         "timeline",
 	video_interval: 	null, 
 	img:  				null, 
 	frame_rate: 		1000,  // in miliseconds  
@@ -32,11 +32,11 @@ var Application = {
     },
 	
 	buildIndex: function() {
-		// draw link on sidebar
-        var sidebar = $("#" + Application.sidebar_id);
+		// draw link on timeline
+        var timeline = $("#" + Application.timeline_id);
         var menu = $.UL({});
 
-        sidebar.append(menu);
+        timeline.append(menu);
 
         $.each(Application.getImagesList, function(i, item) {
 		    if (item != ".DS_Store")
@@ -71,8 +71,8 @@ var Application = {
         Application.frame_count++;
         
         // update active link on sidebar
-        $("#sidebar li").removeClass("active");
-        $("#sidebar .frame" + Application.frame_count).find("li").addClass("active");
+        $("#timeline li").removeClass("active");
+        $("#timeline .frame" + Application.frame_count).find("li").addClass("active");
 
 
         // if reached total, stop interval
