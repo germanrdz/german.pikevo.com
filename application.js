@@ -47,7 +47,9 @@ var Application = {
                     $.A({ className: "frame" + i, href: "javascript:Application.goToFrame("+i+");" }, $.LI({}, item)));
             }
         });
-	},
+	
+        timeline.find("ul").css("width", (90 + 24) * Application.images_list.length);
+    },
 	
     goToFrame: function(frame) {
         Application.pause();
@@ -103,7 +105,8 @@ var Application = {
         
         // update active link on sidebar
         $("#timeline li").removeClass("active");
-        $("#timeline .frame" + Application.frame_count).find("li").addClass("active");
+        $("#timeline .frame" + Application.frame_count).focus()
+            .find("li").addClass("active");
 	}
 	
 };
