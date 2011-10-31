@@ -4,9 +4,7 @@
 
 <html>
 	<head>
-        <title>
-            Picture Evolution
-        </title>
+        <title>Picture Evolution</title>
   
 		<link href="master.css" rel="stylesheet" type="text/css" />		
 		<script src="jquery.min.js" type="text/javascript" charset="utf-8" ></script>
@@ -17,7 +15,6 @@
         <div id="content">
             
             <h1>My Picture Evolution</h1>
-
             <p>
                 I set a timer on my laptop, on my desktop machine and on my phone, to remind me every day to take a picture of myself at 3:00 pm, no matter what i am doing or where i am.
             </p>
@@ -39,16 +36,14 @@
                 <div id="controls">
                     <h3>Controls</h3>
 
-                    <a href="javascript:Application.replay()" />Start</a>
+                    <a href="javascript:Application.start()" />Start</a>
                     <a href="javascript:Application.pause()" />Pause</a>
+                    <a href="javascript:Application.resume()" />Resume</a>
                 </div>
                 
             </div> <!-- wrapper -->
 
             <div id="timeline">
-                <ul>
-                    
-                </ul>
             </div>
 
 

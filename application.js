@@ -44,12 +44,43 @@ var Application = {
 	            Application.images_list.push(item);
                 
                 $(menu).append(
-                    $.A({ className: "frame" + i, href: "javascript:goToFrame("+i+");" }, $.LI({}, item)));
+                    $.A({ className: "frame" + i, href: "javascript:Application.goToFrame("+i+");" }, $.LI({}, item)));
             }
         });
 	},
 	
+    goToFrame: function(frame) {
+        Application.pause();
+        Application.frame_count = frame - 1;
+        Application.nextFrame();
+    },
+
+    pause: function() {
+        clearInterval(Application.video_interval);
+    },
+
+    resume: function() {
+        
+        
+        Application.video_interval = setInterval(Application.nextFrame, Application.frame_rate);
+    },
+
+    start: function() {
+        Application.frame_count = 0;
+
+        clearInterval(Application.video_interval);
+        Application.video_interval = setInterval(Application.nextFrame, Application.frame_rate);
+    },
+    
 	nextFrame: function() {
+
+        // if reached total, stop interval
+        if (Application.frame_count >= Application.total_frames)                
+        {
+            clearInterval(Application.video_interval);
+            return;
+        }
+
 		var nextFrameImage = Application.images_dir + Application.images_list[Application.frame_count];
         var currentImage = Application.img.find("img");
 
@@ -73,13 +104,6 @@ var Application = {
         // update active link on sidebar
         $("#timeline li").removeClass("active");
         $("#timeline .frame" + Application.frame_count).find("li").addClass("active");
-
-
-        // if reached total, stop interval
-        if (Application.frame_count >= Application.total_frames)                
-        {
-            clearInterval(Application.video_interval);;
-        }
 	}
 	
 };
