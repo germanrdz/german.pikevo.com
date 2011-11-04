@@ -41,7 +41,6 @@
                     <h3>Controls</h3>
 
                     <a href="javascript:Application.start()" />Start</a>
-                    <a href="javascript:Application.pause()" />Pause</a>
                     <a href="javascript:Application.resume()" />Resume</a>
                 </div>
                 

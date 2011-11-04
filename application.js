@@ -48,12 +48,13 @@ var Application = {
             }
         });
 	
+        // resize url to fit all links in one row
         timeline.find("ul").css("width", (90 + 24) * Application.images_list.length);
     },
 	
     goToFrame: function(frame) {
         Application.pause();
-        Application.frame_count = frame - 1;
+        Application.frame_count = frame;
         Application.nextFrame();
     },
 
@@ -62,8 +63,6 @@ var Application = {
     },
 
     resume: function() {
-        
-        
         Application.video_interval = setInterval(Application.nextFrame, Application.frame_rate);
     },
 
@@ -100,13 +99,13 @@ var Application = {
             Application.img.append($.IMG({ src: nextFrameImage }));
             
         });
-
-        Application.frame_count++;
-        
+   
         // update active link on sidebar
         $("#timeline li").removeClass("active");
         $("#timeline .frame" + Application.frame_count).focus()
             .find("li").addClass("active");
+
+		Application.frame_count++;
 	}
 	
 };
