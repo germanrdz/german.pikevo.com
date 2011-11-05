@@ -18,7 +18,7 @@ a {
 
 #timeline {
     width: 980px;
-    height: 70px;
+    height: 75px;
     
     overflow-x: scroll;
     overflow-y: hidden;
