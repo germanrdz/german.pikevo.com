@@ -5,7 +5,7 @@ var Application = {
     timeline_id:         "timeline",
 	video_interval: 	null, 
 	img:  				null, 
-	frame_rate: 		800,  // in miliseconds  
+	frame_rate: 		400,  // in miliseconds  
 	images_list:   		[],
 	frame_count:  		0,
 	total_frames: 		0, 
